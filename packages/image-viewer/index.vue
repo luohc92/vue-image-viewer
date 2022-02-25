@@ -69,7 +69,7 @@
         <div
           class="cool-image-viewer__thumbnail"
           ref="thumbnail"
-          v-show="thumbnailTransitionShow && showThumbnail"
+          v-show="thumbnailTransitionShow && showThumbnail && images && images.length > 1"
           @mouseenter="mouseEnterThumbnail(true)"
           @mouseleave="mouseEnterThumbnail(false)"
         >
@@ -80,7 +80,6 @@
             v-for="(image, index) in images"
             :key="image + '_thumbnail_' + index"
             @click="change(index)"
-            v-show="image && image.length > 1"
           >
             <img :src="image" />
           </div>
@@ -143,7 +142,7 @@ export default {
     actionStyle() {
       if (this.handlePosition == "bottom") {
         return {
-          bottom: this.showThumbnail ? "100px" : "30px",
+          bottom: this.showThumbnail && this.images && this.images.length > 1 ? "100px" : "30px",
           top: "auto",
         };
       }
@@ -538,10 +537,8 @@ export default {
   position: absolute;
   z-index: 1;
   bottom: 10px;
-  height: 80px;
   display: flex;
   flex-wrap: nowrap;
-  cursor: pointer;
   box-sizing: border-box;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -552,7 +549,7 @@ export default {
   overflow-x: auto;
   overflow-y: hidden;
   white-space: nowrap;
-  padding: 10px 7px 8px 7px;
+  padding: 6px;
   box-sizing: border-box;
   background-color: #222222;
   max-width: 80%;
@@ -560,16 +557,16 @@ export default {
 }
 .cool-image-viewer__thumbnail__inner {
   display: flex;
-  flex-basis: 60px;
   align-items: center;
   justify-content: center;
   height: 60px;
   min-width: 60px;
-  margin: 0px 4px;
+  max-width: 100px;
+  margin: 0px 2px;
   background-color: rgb(49, 49, 49);
+  border: 2px solid transparent;
   border-radius: 5px;
   overflow: hidden;
-  box-sizing: border-box;
   transition: all 0.2s;
   cursor: pointer;
 }
@@ -579,11 +576,10 @@ export default {
 .cool-image-viewer__thumbnail img {
   max-height: 100%;
   max-width: 100%;
-  border-radius: 5px;
 }
 .cool-image-viewer__thumbnail::-webkit-scrollbar {
   width: 8px;
-  height: 8px;
+  height: 5px;
   background-color: transparent;
 }
 
@@ -595,6 +591,7 @@ export default {
 .cool-image-viewer__thumbnail::-webkit-scrollbar-thumb {
   border-radius: 5px;
   border: 3px solid rgba(2, 2, 2, 0.8);
+  border-top-width: 1px;
   background-color: rgba(255, 255, 255, 0.4);
 }
 .cool-image-viewer__thumbnail::-webkit-scrollbar-thumb:hover {
@@ -602,6 +599,6 @@ export default {
 }
 .cool-image-viewer__thumbnail::-webkit-scrollbar-button {
   background-color: transparent;
-  width: 5px;
+  width: 2px;
 }
 </style>
