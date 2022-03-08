@@ -5,7 +5,7 @@ if (typeof window !== "undefined" && window.Vue) {
 }
 // 为组件添加 install 方法，用于按需引入
 ImageViewer.install = (Vue) => {
-  Vue.component("ImageViewer", ImageViewer);
+  Vue.prototype.$imageViewer = ImageViewer;
 };
 
 export default ImageViewer;

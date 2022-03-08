@@ -17,10 +17,15 @@
       >
         <i class="iconfont icon-close"></i>
       </span>
-      <span class="cool-image-viewer__btn cool-image-viewer__pre" @click="pre">
+      <span
+        v-if="images && images.length > 1"
+        class="cool-image-viewer__btn cool-image-viewer__pre"
+        @click="pre"
+      >
         <i class="iconfont icon-arrow-left"></i>
       </span>
       <span
+        v-if="images && images.length > 1"
         class="cool-image-viewer__btn cool-image-viewer__next"
         @click="next"
       >
@@ -90,6 +95,13 @@
           </div>
         </div>
       </transition>
+      <span
+        class="cool-image-viewer__sequence"
+        :style="sequenceStyle"
+        v-show="!showThumbnail"
+      >
+        {{ curIndex + 1 }} / {{ images.length }}
+      </span>
     </div>
   </transition>
 </template>
@@ -143,6 +155,18 @@ export default {
     },
     isLast() {
       return this.curIndex === this.images.length - 1;
+    },
+    sequenceStyle() {
+      if (this.handlePosition == "bottom") {
+        return {
+          top: "10px",
+          bottom: "auto",
+        };
+      }
+      return {
+        bottom: "10px",
+        top: "auto",
+      };
     },
     actionStyle() {
       if (this.handlePosition == "bottom") {
@@ -463,7 +487,19 @@ export default {
     opacity: 0;
   }
 }
-
+.cool-image-viewer__sequence {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  user-select: none;
+  color: #ffffff;
+  left: 50%;
+  top: 20px;
+  transform: translateX(-50%);
+}
 .cool-image-viewer__actions {
   position: absolute;
   z-index: 1;

@@ -9,7 +9,7 @@ const defaultOptions = {
   images: [],
   showDownload: false,
   showThumbnail: false,
-  handlePosition: 'top',
+  handlePosition: 'bottom',
   onClose: fn,
   onDownload: fn,
   zIndex: 2000,
