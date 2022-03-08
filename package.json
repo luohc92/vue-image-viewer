@@ -1,6 +1,6 @@
 {
   "name": "@luohc92/vue-image-viewer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "a image viewer for vue",
   "keyword": "vue image-viewer",
   "main": "lib/vue-image-viewer.umd.js",
