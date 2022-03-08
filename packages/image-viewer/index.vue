@@ -69,7 +69,12 @@
         <div
           class="cool-image-viewer__thumbnail"
           ref="thumbnail"
-          v-show="thumbnailTransitionShow && showThumbnail && images && images.length > 1"
+          v-show="
+            thumbnailTransitionShow &&
+            showThumbnail &&
+            images &&
+            images.length > 1
+          "
           @mouseenter="mouseEnterThumbnail(true)"
           @mouseleave="mouseEnterThumbnail(false)"
         >
@@ -142,7 +147,10 @@ export default {
     actionStyle() {
       if (this.handlePosition == "bottom") {
         return {
-          bottom: this.showThumbnail && this.images && this.images.length > 1 ? "100px" : "30px",
+          bottom:
+            this.showThumbnail && this.images && this.images.length > 1
+              ? "100px"
+              : "30px",
           top: "auto",
         };
       }
@@ -364,9 +372,9 @@ export default {
       this.showThumbnail = options.showThumbnail;
       this.maskBgColor = options.maskBgColor;
       this.handlePosition = options.handlePosition;
-      setTimeout(() => {
+      this.$nextTick(() => {
         this.thumbnailTransitionShow = true;
-      }, 1);
+      });
     },
   },
 };

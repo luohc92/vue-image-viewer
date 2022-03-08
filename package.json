@@ -1,11 +1,15 @@
 {
-  "name": "vue-image-viewer",
+  "name": "@luohc92/vue-image-viewer",
   "version": "0.1.0",
   "description": "a image viewer for vue",
   "keyword": "vue image-viewer",
   "main": "lib/vue-image-viewer.umd.js",
   "license": "MIT",
-  "github": "https://github.com/luohc92/vue-image-viewer",
+  "author": "luohc92",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luohc92/vue-image-viewer.git"
+  },
   "private": false,
   "scripts": {
     "lib": "vue-cli-service build --target lib --name vue-image-viewer --dest lib packages/index.js",

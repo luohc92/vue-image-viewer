@@ -1,13 +1,14 @@
-# vue-image-preview
+# vue-image-viewer
 
-## Project setup
+## Install
 ```
-npm install
+npm i @luohc92/vue-image-viewer
+
 ```
 
-### Compiles and hot-reloads for development
+## Usage
 ```
-npm run serve
+import ImageViewer from "@luohc92/vue-image-viewer";
 ```
 
 ### Compiles and minifies for production
