@@ -262,6 +262,9 @@ export default {
           case 17:
             this.handleActions("mirror");
             break;
+          case 18:
+            this.handleActions("clocelise");
+            break;
           // ESC
           case 27:
             this.close();
