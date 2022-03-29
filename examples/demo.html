@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>vue cdn</title>
+</head>
+
+<body>
+  <div id="app">
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <script src="./vue-image-viewer.umd.min.js"></script>
+  <link rel="stylesheet" href="./vue-image-viewer.css">
+  <script type="text/javascript">
+    new Vue({
+      el: "#app",
+      data: {
+        menus: '123',
+        images: [
+          "https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg",
+          "https://fuss10.elemecdn.com/1/34/19aa98b1fcb2781c4fba33d850549jpeg.jpeg",
+          "https://fuss10.elemecdn.com/8/27/f01c15bb73e1ef3793e64e6b7bbccjpeg.jpeg",
+        ],
+      },
+      mounted() {
+        this.$imageViewer({
+          images: this.images,
+          curIndex: 0,
+          zIndex: 3000,
+          showDownload: true,
+          showThumbnail: true,
+          handlePosition: "bottom",
+          maskBgColor: "rgba(0,0,0,0.7)",
+          onClose: () => {
+            console.log("close");
+          },
+        });
+      },
+    });
+  </script>
+
+</body>
+
+</html>

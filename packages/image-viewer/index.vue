@@ -52,11 +52,11 @@
           <span class="cool-image-viewer__actions__divider"></span>
           <span
             class="iconfont icon-refresh-left"
-            @click="handleActions('anticlocelise')"
+            @click="handleActions('anticlockwise')"
           ></span>
           <span
             class="iconfont icon-refresh-right"
-            @click="handleActions('clocelise')"
+            @click="handleActions('clockwise')"
           ></span>
           <span
             class="iconfont icon-mirror"
@@ -255,15 +255,14 @@ export default {
     },
     deviceSupportInstall() {
       this._keyDownHandler = (e) => {
-        e.stopPropagation();
+        e.preventDefault();
         const keyCode = e.keyCode;
-        console.log(keyCode);
         switch (keyCode) {
           case 17:
             this.handleActions("mirror");
             break;
           case 18:
-            this.handleActions("clocelise");
+            this.handleActions("clockwise");
             break;
           // ESC
           case 27:
@@ -360,10 +359,10 @@ export default {
         case "zoomIn":
           transform.scale = parseFloat((transform.scale + zoomRate).toFixed(3));
           break;
-        case "clocelise":
+        case "clockwise":
           transform.deg += rotateDeg;
           break;
-        case "anticlocelise":
+        case "anticlockwise":
           transform.deg -= rotateDeg;
           break;
         case "mirror":

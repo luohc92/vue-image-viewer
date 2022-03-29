@@ -1,10 +1,11 @@
 # vue-image-viewer
 
+A image viewer for vue2.x
+
 ## Install
 
 ```
 npm i @luohc92/vue-image-viewer
-
 ```
 
 ## Usage
@@ -42,3 +43,20 @@ Vue.use(ImagePreview)
 | maskBgColor    | String              | false    | set mask background color 设置遮罩背景颜色        | rgba(0,0,0,0.7) |
 | onClose        | Function            | false    | close function callback 关闭方法回调              | null            |
 | onDownload     | Function            | false    | download image function callback 关闭方法回调     | null            |
+
+### Keyboard Shortcuts
+
+| Keyboard    | Action                                                                          |
+| ----------- | ------------------------------------------------------------------------------- |
+| arrow-left  | prev 上一张                                                                     |
+| arrow-right | next 下一张                                                                     |
+| arrow-up    | zoomIn 放大                                                                     |
+| arrow-down  | zoomOut 缩小                                                                    |
+| alt         | clockwise rotation 顺时针旋转                                                   |
+| ctrl        | mirror 镜像翻转                                                                 |
+| space       | toggle image size mode [contain,original] 图片显示大小模式[自适应大小,原始大小] |
+| esc         | close 关闭                                                                      |
+
+## Demo
+
+[![Demo Image](https://github.com/luohc92/vue-image-viewer/blob/main/examples/assets/demo.png)]
